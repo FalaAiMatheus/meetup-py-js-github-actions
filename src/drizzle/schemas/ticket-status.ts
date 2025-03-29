@@ -6,12 +6,13 @@ export const ticketStatusTable = pgTable('ticket_status', {
     length: 255,
   }).notNull(),
   createdAt: timestamp('created_at', {
+    mode: 'date',
     withTimezone: true,
   })
     .notNull()
-    .defaultNow()
-    .$onUpdate(() => new Date()),
+    .defaultNow(),
   updatedAt: timestamp('updated_at', {
+    mode: 'date',
     withTimezone: true,
   })
     .notNull()
